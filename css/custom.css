@@ -1,0 +1,285 @@
+﻿body{
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.search {
+  position: relative;
+}
+
+.search input {
+  width: 250px;
+  height: 32px;
+}
+
+.search input { text-indent: 32px;}
+.search .fa-search { 
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.sea{
+    color:white;border:none;background-color:transparent;border-bottom:1px solid white;
+   
+}
+
+
+
+.rating{
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+}
+.fontcolor{
+    color:white
+}
+
+.sliding-middle-out {
+	display: inline-block;
+	position: relative;
+	padding-bottom: 3px;
+}
+.sliding-middle-out:after {
+	content: '';
+	display: block;
+	margin: auto;
+	height: 1px;
+	width: 0px;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+.sliding-middle-out:hover:after {
+    cursor:grabbing;
+	width: 100%;
+	background: rgb(82, 179, 217);
+    color:rgb(82, 179, 217);
+}
+
+
+input:focus{
+   outline:none;
+   border-bottom:1px solid rgb(82, 179, 217);
+}
+
+ul.rating {
+  display: inline-block;
+}
+
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rating .filled {
+  color: rgb(249, 105, 14);
+}
+
+
+.lss{
+    border:none;
+   
+}
+
+.dddd.ng-move,
+.dddd.ng-enter,
+.dddd.ng-leave {
+  opacity:0;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: linear;
+  -webkit-transition-duration: 350ms;
+}
+.dddd.ng-leave,
+.dddd.ng-move.ng-move-active,
+.dddd.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+.hov{
+    box-shadow: 0;
+    transition: box-shadow ease-in-out 1s;
+    border: 1px solid #eee;
+}
+
+.hov:hover{
+
+    box-shadow: 5px 2.5px 10px rgb(242, 38, 19);  
+}
+.pan{
+    margin-left:55%;padding-top:10px;padding-bottom:10px;border-color:rgb(65, 131, 215);border-radius:5px 5px 5px 5px;
+    font-weight:bold;margin-bottom:20px;
+}
+.panel{
+    border-color:rgb(37, 116, 169)
+}
+
+.starrating {
+  line-height:32px;
+  font-size:1.25em;
+  cursor: pointer;
+}
+
+#brand:hover{
+    background-color:rgb(82, 179, 217)
+}
+
+.cmn-t-scale {
+  padding: 20px 40px;
+  /* transition: transform 0.2s; */
+}
+.cmn-t-scale:hover {
+  transform: scale(1.1);
+}
+
+.main{
+    margin-left:5%;margin-right:5%;margin-top:10%;
+}
+    .lss{
+        margin-top:0;
+        margin-bottom:0;
+        padding-top:0;
+        padding-bottom:10px;
+    }
+     .listfont1{
+        font-size:1.2em;
+        font-weight:bold;
+    }
+    .listfont{
+        font-size:1em;
+        font-weight:bold;
+        color:rgb(44, 62, 80);
+    }
+
+
+@media only screen and (max-width: 768px) {
+   
+     [class*="col-"] {
+        width: 100%;
+    }
+    
+     .lss{
+        margin-top:0;
+        margin-bottom:0;
+        padding-top:0;
+        padding-bottom:0;
+    }
+}
+
+
+/*! 
+ * angular-loading-bar v0.8.0
+ *
+ * Copyright (c) 2015 Wes Cruver
+ * License: MIT
+ */
+
+/* Make clicks pass-through */
+#loading-bar,
+#loading-bar-spinner {
+  pointer-events: none;
+  -webkit-pointer-events: none;
+  -webkit-transition: 350ms linear all;
+  -moz-transition: 350ms linear all;
+  -o-transition: 350ms linear all;
+  transition: 350ms linear all;
+}
+
+#loading-bar.ng-enter,
+#loading-bar.ng-leave.ng-leave-active,
+#loading-bar-spinner.ng-enter,
+#loading-bar-spinner.ng-leave.ng-leave-active {
+  opacity: 0;
+}
+
+#loading-bar.ng-enter.ng-enter-active,
+#loading-bar.ng-leave,
+#loading-bar-spinner.ng-enter.ng-enter-active,
+#loading-bar-spinner.ng-leave {
+  opacity: 1;
+}
+
+#loading-bar .bar {
+  -webkit-transition: width 350ms;
+  -moz-transition: width 350ms;
+  -o-transition: width 350ms;
+  transition: width 350ms;
+
+  background: #D91E18;
+  position: fixed;
+  z-index: 10002;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-bottom-right-radius: 1px;
+  border-top-right-radius: 1px;
+}
+
+/* Fancy blur effect */
+#loading-bar .peg {
+  position: absolute;
+  width: 70px;
+  right: 0;
+  top: 0;
+  height: 2px;
+  opacity: .45;
+  -moz-box-shadow: #D91E18 1px 0 6px 1px;
+  -ms-box-shadow: #D91E18 1px 0 6px 1px;
+  -webkit-box-shadow: #D91E18 1px 0 6px 1px;
+  box-shadow: #D91E18 1px 0 6px 1px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+
+#loading-bar-spinner {
+  display: block;
+  position:fixed;
+  right:40px;
+  z-index: 10002;
+  top: 10px;
+  float:right;
+}
+
+#loading-bar-spinner .spinner-icon {
+  width: 14px;
+  height: 14px;
+
+  border:  solid 2px transparent;
+  border-top-color:  #D91E18;
+  border-left-color: #D91E18;
+  border-radius: 50%;
+
+  -webkit-animation: loading-bar-spinner 400ms linear infinite;
+  -moz-animation:    loading-bar-spinner 400ms linear infinite;
+  -ms-animation:     loading-bar-spinner 400ms linear infinite;
+  -o-animation:      loading-bar-spinner 400ms linear infinite;
+  animation:         loading-bar-spinner 400ms linear infinite;
+}
+
+@-webkit-keyframes loading-bar-spinner {
+  0%   { -webkit-transform: rotate(0deg);   transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-moz-keyframes loading-bar-spinner {
+  0%   { -moz-transform: rotate(0deg);   transform: rotate(0deg); }
+  100% { -moz-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-o-keyframes loading-bar-spinner {
+  0%   { -o-transform: rotate(0deg);   transform: rotate(0deg); }
+  100% { -o-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@-ms-keyframes loading-bar-spinner {
+  0%   { -ms-transform: rotate(0deg);   transform: rotate(0deg); }
+  100% { -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+@keyframes loading-bar-spinner {
+  0%   { transform: rotate(0deg);   transform: rotate(0deg); }
+  100% { transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+

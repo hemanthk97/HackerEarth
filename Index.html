@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="HackerEarth">
+<head>
+    <title>HackerEarth</title>
+    <link rel="shortcut icon" type="image/x-icon" href="css/HE_identity_white1.ico" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
+</head>
+<body data-ng-controller="ProblemController as problem">
+    <nav class="navbar navbar-inverse" style="background-color:#323754;position:fixed;width:100%;top:0;z-index:100">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="https://www.hackerearth.com/challenges/" target="_blank" style="height:30px;width:30px">
+                    <img id="brand" style="height:30px;width:30px" src="https://hackerearth.global.ssl.fastly.net/static/hackerearth/images/logo/HE_identity_white.png" alt="Brand">
+                </a>
+            </div>
+            <ul class="nav navbar-nav navbar-right" style="padding-top:5px;padding-right:10px">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">SORT<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" ng-click="sort='-rating'">Rating</a></li>
+                        <li><a href="#" ng-click="sort='-like'">Likes</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" ng-click="sort=''">Reset</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <p class="navbar-text navbar-right sliding-middle-out" style="padding-right:30px;padding-top:5px">
+                Total likes: <span style="font-weight:normal">{{totallikes}}</span> &nbsp; | &nbsp;  Api Hits: <span style="font-weight:normal">{{apihits.api_hits}}</span>
+            <p />
+            <form class="navbar-form navbar-right" style="padding-bottom:5px" role="search">
+                <div class="search">
+                    <span class="fa fa-search fontcolor"></span>
+                    <input type="text" class="sea" placeholder="            Search (by tags) &#8981" ng-model="text1" />
+                </div>
+            </form>
+        </div>
+    </nav>
+    <div class="row main">
+        <div class="col-lg-6 col-md-6 col-sm-6 dddd ng-cloak" data-ng-repeat="product in problems.problems | filter:text1 | orderBy:sort" ng-if="product.rating" style="-webkit-transition-delay:{{$index * 100}}ms">
+            <div class="panel panel-default hov">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4" style="margin:0;padding:0;padding-left:5px;padding-right:5px">
+                            <a href="{{product.image}}" data-lightbox="image-1" data-title="{{product.name}}" class="thumbnail">
+                                <img src="{{product.image}}" alt="No Image" style="height:100%;width:100%">
+                            </a>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-8" style="margin:0;padding:0;">
+                            <ul class="list-group" style="border:none">
+                                <li class="list-group-item lss listfont1"><a href="{{product.url}}" target="_blank">{{product.name}}</a></li>
+                                <li class="list-group-item lss listfont">
+                                    <span>Solved by: {{product.solved_by}}  |  {{product.rating}}</span>
+                                    <span star-rating rating-value="product.rating" max="5"></span>
+                                </li>
+                                <li class="list-group-item lss listfont"><i class="fa fa-home fa-1x"></i>&nbsp;&nbsp;<span style="font-weight:bold"></span> <span>{{product.parent_challenge}}</span></li>
+                                <li class="list-group-item lss listfont"><i class="fa fa-tag fa-1x"></i>&nbsp;&nbsp;<span style="font-weight:bold"></span> <span ng-repeat="tag in product.tags">{{tag}} ,</span></li>
+                                <li class="list-group-item lss listfont">
+                                    <i class="fa fa-link fa-1x"></i>&nbsp;<a href="{{product.link}}" target="_blank">{{product.url | limitTo:20}}</a>
+                                    <button class="btn btn-primary" ng-click="problem.like1(product.name)" type="button">
+                                        <i class="fa fa-thumbs-o-up"></i> <span class="badge">{{product.like}}</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.8.0/loading-bar.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.1/css/lightbox.css" rel="stylesheet" />
+    <link href="css/custom.css" rel="stylesheet" />
+    <script src="app/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.1/js/lightbox.js"></script>
+
+
+    <script>
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        });
+    </script>
+</body>
+</html>
+
+
